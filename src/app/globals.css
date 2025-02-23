@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap');
+:root {
+  --background: #FBF7F4;
+  --foreground: #000000;
+  --footer-height: 180px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #FBF7F4;
+    --foreground: #000000;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-body {
+  font-weight: 400;
+  font-size: 4rem;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 30px 0;
+  width: 80%;
+  height: 100%;
+  justify-self: center;
+  
+}
+
+.title {
+  font-weight: 400;
+  font-size: xxx-large;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.h2{
+  font-size: 2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serifs;
+  margin-top: 5px;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px 0;
+  font-size: x-large;
+  width: 100%;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.service-grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 5px 0;
+  gap: 10px;
+  height: 300px;
+}
+
+.cedarville-cursive-regular {
+  font-family: "Cedarville Cursive", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.mea-culpa-regular {
+  font-family: "Mea Culpa", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.marquee {
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-top: 20px;
+}
+
+.marquee div {
+  display: flex;
+  flex-direction: row;
+  width: 200%;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  
+  animation: marquee 15s linear infinite;
+}
+
+.marquee span {
+  float: left;
+  height: 300px;
+  width: 50%;
+}
+
+@keyframes marquee {
+  0% { left: 0; }
+  100% { left: -100%; }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header {
+    font-size: 3.5rem;
+    margin: 4% 8%;
+  }
+
+  .title {
+    font-size: xx-large;
+    height: 80px;
+  }
+  .marquee {
+    height: 250px;
+  }
+
+  .service-grid {
+    height: 200px;
+  }
+
+  .section-grid {
+    font-size: large;
+  }
+}
+
+/* Small Screens (Phones, 480px to 767px) */
+@media (max-width: 768px) {
+  .header {
+    font-size: 3rem;
+    margin: 5% 5%;
+  }
+
+  .title {
+    font-size: x-large;
+    height: 70px;
+  }
+
+  .marquee {
+    height: 200px;
+  }
+
+  .h2 {
+    font-size: large;
+  }
+
+  .service-grid {
+    height: 150px;
+    gap: 5px;
+  }
+
+  .section-grid {
+    grid-template-columns: 1fr;
+    font-size: medium;
+  }
+}
+
+/* Extra Small Screens (Phones, less than 480px) */
+@media (max-width: 480px) {
+  .header {
+    font-size: 2.5rem;
+    margin: 5% 3%;
+  }
+
+  .title {
+    font-size: large;
+    height: 60px;
+  }
+  .marquee {
+    height: 100px;
+  }
+
+  /* .marquee span {
+    height: 150px;
+  } */
+
+  .marquee div {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  .h2 {
+    font-size: medium;
+  }
+
+  .section-grid {
+    grid-template-columns: 1fr;
+    font-size: small;
+  }
+  .service-grid {
+    height: 100px;
+    gap: 5px;
+  }
+}
+
+/* Very Small Screens (320px and below) */
+@media (max-width: 320px) {
+  .header {
+    font-size: 2rem;
+    margin: 5% 2%;
+  }
+
+  .title {
+    font-size: medium;
+    height: 50px;
+  } 
+
+  .marquee {
+    height: 80px;
+  }
+
+  .marquee span {
+    height: 100px;
+  }
+
+  .marquee div {
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    gap: 5px;
+  }
+
+  .h2 {
+    font-size: medium;
+  }
+
+  .section-grid {
+    grid-template-columns: 1fr;
+    font-size: small;
+  }
+  .service-grid {
+    flex-direction: column;
+    height: fit-content;
+    gap: 10px;
+  }
+}
